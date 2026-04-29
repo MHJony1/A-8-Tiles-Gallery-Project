@@ -58,7 +58,7 @@ const Footer = () => {
                 <Link
                   key={i}
                   href="#"
-                  className="w-8 h-8 border border-[#e0d8cc] flex items-center justify-center text-[#a89880] hover:text-[#b07d3a] hover:border-[#b07d3a] transition-all duration-300 active:scale-90"
+                  className="w-8 h-8 border rounded-full border-[#e0d8cc] flex items-center justify-center text-[#a89880] hover:text-[#b07d3a] hover:border-[#b07d3a] transition-all duration-300 active:scale-90"
                 >
                   <Icon size={13} />
                 </Link>
@@ -119,8 +119,8 @@ const Footer = () => {
               </div>
 
               {/* Newsletter */}
-              <div className="bg-[#f3ede4] border border-[#e0d8cc] p-5 flex flex-col justify-center gap-3">
-                <p className="text-[10px] text-[#a89880] uppercase tracking-[0.2em]">
+              <div className="bg-[#f3ede4] rounded-lg border border-[#e0d8cc] p-5 flex flex-col justify-center gap-3">
+                <p className="text-[10px] text-[#a89880] uppercase tracking-[0.2em] ">
                   Get Updates
                 </p>
                 <div className="flex items-center border-b border-[#d4c9bb] py-1 focus-within:border-[#b07d3a] transition-colors duration-300">

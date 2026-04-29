@@ -14,9 +14,9 @@ const navLinks = [
 
 const TilesLogo = () => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-    <rect x="0"  y="0"  width="12" height="12" fill="#1a1a1a" opacity="1"   />
-    <rect x="16" y="0"  width="12" height="12" fill="#1a1a1a" opacity="0.2" />
-    <rect x="0"  y="16" width="12" height="12" fill="#1a1a1a" opacity="0.2" />
+    <rect x="0" y="0" width="12" height="12" fill="#1a1a1a" opacity="1" />
+    <rect x="16" y="0" width="12" height="12" fill="#1a1a1a" opacity="0.2" />
+    <rect x="0" y="16" width="12" height="12" fill="#1a1a1a" opacity="0.2" />
     <rect x="16" y="16" width="12" height="12" fill="#1a1a1a" opacity="0.5" />
   </svg>
 );
@@ -37,15 +37,14 @@ const Navbar = () => {
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');`}</style>
 
       <nav
-        className={`fixed top-0 inset-x-0 z-50 bg-[#fafaf8] border-b font-[DM_Sans] transition-all duration-500 ${
-          scrolled ? 'border-[#e0d8cc] shadow-[0_1px_12px_rgba(0,0,0,0.05)]' : 'border-[#ede8e0]'
+        className={`sticky top-0 inset-x-0 z-50 bg-[#fafaf8] border-b shadow-sm transition-all duration-500 ${
+          scrolled ? 'shadow-md border-[#e0d8cc]' : 'border-[#ede8e0]'
         }`}
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         <div className="h-px w-full bg-[#c8b89a] opacity-30" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
-
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <span className="group-hover:opacity-50 transition-opacity duration-300">
@@ -96,10 +95,14 @@ const Navbar = () => {
           {/* Login Button */}
           <Link
             href="/login"
-            className="hidden md:flex items-center gap-2 uppercase font-medium text-[#fafaf8] bg-[#1a1a1a] px-5 py-2.5 text-[11px] tracking-[0.2em] hover:bg-[#b07d3a] transition-colors duration-300 group"
+            className="hidden md:flex items-center gap-2 uppercase font-medium text-[#fafaf8] bg-[#1a1a1a] px-5 py-2.5 text-[11px] tracking-[0.2em] hover:bg-[#b07d3a] transition-colors duration-300 group rounded-xl"
           >
             Login
-            <ArrowRight size={13} strokeWidth={2} className="group-hover:translate-x-0.5 transition-transform duration-300" />
+            <ArrowRight
+              size={13}
+              strokeWidth={2}
+              className="group-hover:translate-x-0.5 transition-transform duration-300"
+            />
           </Link>
 
           {/* Mobile Hamburger */}
@@ -108,9 +111,15 @@ const Navbar = () => {
             onClick={() => setOpen((v) => !v)}
             aria-label="Menu"
           >
-            <span className={`block h-px bg-[#1a1a1a] transition-all duration-300 ${open ? 'w-5 rotate-45 translate-y-1.5' : 'w-5'}`} />
-            <span className={`block w-5 h-px bg-[#1a1a1a] transition-opacity duration-200 ${open ? 'opacity-0' : ''}`} />
-            <span className={`block h-px bg-[#1a1a1a] transition-all duration-300 ${open ? 'w-5 -rotate-45 -translate-y-1.5' : 'w-3'}`} />
+            <span
+              className={`block h-px bg-[#1a1a1a] transition-all duration-300 ${open ? 'w-5 rotate-45 translate-y-1.5' : 'w-5'}`}
+            />
+            <span
+              className={`block w-5 h-px bg-[#1a1a1a] transition-opacity duration-200 ${open ? 'opacity-0' : ''}`}
+            />
+            <span
+              className={`block h-px bg-[#1a1a1a] transition-all duration-300 ${open ? 'w-5 -rotate-45 -translate-y-1.5' : 'w-3'}`}
+            />
           </button>
         </div>
 
