@@ -52,7 +52,7 @@ const Banner = () => {
           </div>
         </div>
 
-        {/* Floating Rare Card: Glassmorphism effect optimized */}
+        
         <div className="absolute bottom-12 right-12 hidden lg:block group-hover:translate-y-2.5 transition-transform duration-700">
           <div className="p-6 backdrop-blur-2xl bg-black/20 border border-white/10 rounded-[2rem] shadow-2xl">
             <p className="text-[#c8b89a] text-[9px] uppercase tracking-[0.4em] font-bold mb-2">
