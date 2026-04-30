@@ -57,14 +57,6 @@ const SearchTiles = ({ tiles }) => {
                 />
               )}
             </SearchField.Group>
-
-            {searchTerm && (
-              <div className="flex justify-center mt-6">
-                <span className="text-[10px] tracking-widest uppercase bg-stone-50 text-amber-700/70 border border-amber-100/50 px-4 py-1 rounded-full">
-                  Found {filteredTiles.length} architectural pieces
-                </span>
-              </div>
-            )}
           </SearchField>
         </div>
       </div>

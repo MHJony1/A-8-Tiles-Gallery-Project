@@ -1,12 +1,27 @@
+import { Suspense } from 'react';
 import SearchTiles from '@/components/SearchTiles';
+import SkeletonLoader from '@/components/SkeletonLoader';
+import CollectionCount from '@/components/CollectionCount';
 
-const AllTilesPage = async () => {
+const TilesContent = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const res = await fetch(
     'https://tile-gallery-server2.onrender.com/products',
     { next: { revalidate: 3600 } },
   );
   const tiles = await res.json();
 
+  return (
+    <>
+      {/* Search and Grid Section */}
+      <div className="bg-white rounded-3xl p-2 md:p-6">
+        <SearchTiles tiles={tiles} />
+      </div>
+    </>
+  );
+};
+
+const AllTilesPage = () => {
   return (
     <main className="min-h-screen bg-[#fafafa]">
       <header className="relative pt-16 pb-12 bg-white border-b border-stone-100">
@@ -39,8 +54,8 @@ const AllTilesPage = async () => {
                 <span className="text-[10px] uppercase tracking-widest text-stone-400 font-medium">
                   Total Collection
                 </span>
-                <span className="px-3 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-full border border-amber-100">
-                  {tiles.length} Units
+                <span>
+                  <CollectionCount />
                 </span>
               </div>
             </div>
@@ -48,11 +63,11 @@ const AllTilesPage = async () => {
         </div>
       </header>
 
-      {/* Grid Section with refined spacing */}
+      {/* Grid Section with Suspense */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 py-12">
-        <div className="bg-white rounded-3xl p-2 md:p-6">
-          <SearchTiles tiles={tiles} />
-        </div>
+        <Suspense fallback={<SkeletonLoader count={12} />}>
+          <TilesContent />
+        </Suspense>
       </section>
 
       {/* Aesthetic Bottom Detail */}
