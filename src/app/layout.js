@@ -7,6 +7,11 @@ import './globals.css';
 export const metadata = {
   title: 'Tilecraft Gallery',
   description: 'Premium tile designs for modern architectural spaces.',
+   icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {

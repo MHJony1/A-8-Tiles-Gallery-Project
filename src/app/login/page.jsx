@@ -13,6 +13,8 @@ import {
 } from '@heroui/react';
 import { FcGoogle } from 'react-icons/fc';
 import Link from 'next/link';
+import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
 
 export default function LogInPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,6 +22,35 @@ export default function LogInPage() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    const {data, error} = await authClient.signIn.email({
+      email,
+      password,
+      callbackURL:"/"
+    });
+
+    if(error) {
+      toast.error(error.message || "Login failed!");
+      return;
+    }
+    if(data) {
+      toast.success("Login successful!");
+      router.push('/');
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+  try {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/", 
+    });
+  } catch (error) {
+    toast.error("Google sign in failed!");
+  }
   };
 
   return (
@@ -148,7 +179,8 @@ export default function LogInPage() {
               <div className="flex justify-center">
                 <button
                   type="button"
-                  className="flex items-center gap-3 px-8 py-3 border border-stone-200 hover:bg-stone-50 transition-all rounded-md shadow-sm group"
+                  className="flex items-center gap-3 px-8 py-3 border border-stone-200 hover:bg-stone-50 transition-all rounded-md shadow-sm group cursor-pointer"
+                  onClick={handleGoogleSignIn}
                 >
                   <FcGoogle size={22} />
                   <span className="text-sm font-semibold text-stone-600 group-hover:text-stone-900">

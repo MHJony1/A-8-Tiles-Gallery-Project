@@ -1,20 +1,45 @@
 'use client';
 
 import { useState } from 'react';
-
 import { Home as HomeIcon, Check, Eye, EyeOff, UserPlus } from 'lucide-react';
 import { Button, Card, Form, Input, TextField } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
 
 export default function SignUpPage() {
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
-
+  const router = useRouter();
+  
+  
   const onSubmit = async (e) => {
     e.preventDefault();
-  };
 
+    const name = e.target.name.value
+    const image = e.target.image.value
+    const email = e.target.email.value
+    const password = e.target.password.value
+
+    const { data, error } = await authClient.signUp.email({
+      name,
+      image,
+      email,
+      password
+    })
+     console.log(data, error);
+    if (error) {
+    toast.error(error.message || "Registration failed!");
+    return;
+  }
+
+  if (data) {
+    toast.success("Account created successfully!");
+    router.push('/login');
+  }
+  };
+  
   return (
     <main className="min-h-screen bg-[#FDFDFD] antialiased pb-20">
       {/* Breadcrumb  Navigation */}
