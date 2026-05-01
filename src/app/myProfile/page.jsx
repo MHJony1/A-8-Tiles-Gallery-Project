@@ -2,7 +2,7 @@
 
 import { UpdateUserModal } from '@/components/UpdateUserModal';
 import { authClient } from '@/lib/auth-client';
-import { Card, Tooltip } from '@heroui/react'; // Tooltip ইম্পোর্ট করুন
+import { Card, Tooltip } from '@heroui/react';
 import React from 'react';
 import Image from 'next/image';
 import { Mail, ShieldCheck, User } from 'lucide-react';

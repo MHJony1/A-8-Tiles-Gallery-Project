@@ -3,6 +3,17 @@ import SearchTiles from '@/components/SearchTiles';
 import SkeletonLoader from '@/components/SkeletonLoader';
 import CollectionCount from '@/components/CollectionCount';
 
+
+export const metadata = {
+  title: 'Tilecraft Gallery | All Tiles',
+  description: 'Premium tile designs for modern architectural spaces.',
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+    ],
+  },
+};
+
 const TilesContent = async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const res = await fetch(

@@ -3,6 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Maximize2, Layers, Box, ArrowRight, ShieldCheck } from 'lucide-react';
 
+
+export const generateMetadata = async ({ params }) => {
+  const { id } = await params;
+  const tilesDetails = await getTileData(id);
+  return {
+    title: tilesDetails.title,
+  };
+};
+
 const getTileData = async (id) => {
   try {
     const res = await fetch(
