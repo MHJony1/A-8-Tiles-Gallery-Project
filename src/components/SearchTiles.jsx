@@ -62,7 +62,7 @@ const SearchTiles = ({ tiles }) => {
       </div>
 
       {/* --- Grid Section --- */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-6">
         {filteredTiles?.length > 0 ? (
           filteredTiles.map((tile) => (
             <div
@@ -91,3 +91,14 @@ const SearchTiles = ({ tiles }) => {
 };
 
 export default SearchTiles;
+
+
+
+
+
+
+
+
+
+
+

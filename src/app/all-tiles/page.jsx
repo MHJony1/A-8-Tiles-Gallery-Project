@@ -75,8 +75,8 @@ const AllTilesPage = () => {
       </header>
 
       {/* Grid Section with Suspense */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-12">
-        <Suspense fallback={<SkeletonLoader count={12} />}>
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-8">
+        <Suspense fallback={<SkeletonLoader count={16} />}>
           <TilesContent />
         </Suspense>
       </section>
@@ -96,3 +96,16 @@ const AllTilesPage = () => {
 };
 
 export default AllTilesPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
