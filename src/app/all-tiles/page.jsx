@@ -18,7 +18,7 @@ const TilesContent = async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const res = await fetch(
     'https://tile-gallery-server2.onrender.com/products',
-    { next: { revalidate: 3600 } },
+    { cache: "no-store" },
   );
   const tiles = await res.json();
 
