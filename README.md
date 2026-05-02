@@ -80,4 +80,8 @@
 ---
 <div align="center">
   <p>Crafted with ❤️ by Mahmudul Hasan Jony</p>
+<<<<<<< HEAD
 </div
+=======
+</div>
+>>>>>>> 094b0fc14fc1b70d5a5a44b4d0d5b6ecbe619231
