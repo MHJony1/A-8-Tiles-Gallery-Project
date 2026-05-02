@@ -1,75 +1,149 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
+
+// Swiper CSS
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const Banner = () => {
+  const [showSlider, setShowSlider] = useState(false);
+
+  useEffect(() => {
+    setShowSlider(true);
+  }, []);
+
+  const slides = [
+    {
+      img: 'https://plus.unsplash.com/premium_photo-1661875124229-5201914a77b7?q=80&w=2000',
+      title: "Discover Your",
+      subtitle: "Perfect Aesthetic",
+      desc: "Elevate your space with premium tiles. Explore our curated gallery of world-class textures."
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=2000',
+      title: "Divine Textures",
+      subtitle: "Modern Elegance",
+      desc: "Transform your floors into art. Our premium collection brings timeless luxury to every corner."
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1754447628644-b2dc91ce3237?q=80&w=2000',
+      title: "Architectural",
+      subtitle: "Masterpieces",
+      desc: "Where durability meets design. Discover the future of interior aesthetics with Tilecraft."
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1756079664354-34944e001f6d?q=80&w=2000',
+      title: "Modern Design",
+      subtitle: "Crafted for Luxury",
+      desc: "Architectural masterpieces designed with the finest materials for your dream home."
+    }
+  ];
+
+ 
+  if (!showSlider) {
+    return <div className="w-full h-screen bg-stone-900 animate-pulse"></div>;
+  }
+
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 mt-6">
-      <div className="relative h-[75vh] md:h-[85vh] w-full overflow-hidden rounded-[2.5rem] shadow-2xl group">
-        <div
-          className="absolute inset-0 z-0 transition-transform duration-[6s] ease-out group-hover:scale-110"
-          style={{
-            backgroundImage: `url('https://plus.unsplash.com/premium_photo-1661875124229-5201914a77b7?q=80&w=2000&auto=format&fit=crop')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/30 to-transparent"></div>
-          <div className="absolute inset-0 bg-stone-900/10 mix-blend-multiply"></div>
-        </div>
+    <section className="w-full h-[80vh] md:h-[92vh] mb-16 relative group overflow-hidden bg-stone-950">
+      <Swiper
+        modules={[Autoplay, EffectFade, Navigation, Pagination]}
+        effect="fade"
+        loop={true}
+        speed={1500}
+        autoplay={{ delay: 6000, disableOnInteraction: false }}
+        navigation={true}
+        pagination={{ clickable: true }}
+        className="h-full w-full"
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div className="relative h-full w-full flex items-center px-8 md:px-16 lg:px-24 border-0 outline-0">
+              
+              {/* Background Image with Ken Burns effect */}
+              <div 
+                className="absolute inset-0 z-0 bg-no-repeat bg-cover bg-center transition-transform duration-10000 scale-100 group-hover:scale-110"
+                style={{ backgroundImage: `url('${slide.img}')` }}
+              ></div>
 
-        <div className="relative z-10 h-full flex items-center px-8 md:px-16 lg:px-24">
-          <div className="max-w-4xl space-y-6 md:space-y-8">
-            <div className="flex items-center gap-3 animate-pulse-slow">
-              <span className="w-12 h-px bg-[#c8b89a]"></span>
-              <p className="text-[#c8b89a] uppercase tracking-[0.4em] text-[10px] md:text-xs font-bold drop-shadow-md">
-                Tilecraft Gallery • Premium Interior
-              </p>
+              {/* Overlays */}
+              <div className="absolute inset-0 bg-black/40 z-1"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/20 to-transparent z-1"></div>
+
+              {/* Content */}
+              <div className="relative z-10 max-w-4xl space-y-6">
+                <div className="flex items-center gap-4">
+                  <span className="w-16 h-0.5 bg-[#c8b89a]"></span>
+                  <p className="text-[#c8b89a] uppercase tracking-[0.4em] text-[10px] md:text-xs font-bold">
+                    Tilecraft Gallery • Premium Interior
+                  </p>
+                </div>
+
+                <h1 className="text-5xl md:text-8xl font-serif text-white leading-[1.1]">
+                  {slide.title} <br />
+                  <span className="italic font-light text-stone-300">{slide.subtitle}</span>
+                </h1>
+
+                <p className="text-stone-200 text-base md:text-xl font-light max-w-xl opacity-90 leading-relaxed">
+                  {slide.desc}
+                </p>
+
+                <div className="flex pt-8">
+                  <Link
+                    href="/all-tiles"
+                    className="group relative px-14 py-4 overflow-hidden rounded-full border border-white/30 text-white font-bold uppercase tracking-[0.2em] text-[10px] transition-all"
+                  >
+                    <span className="relative z-10 group-hover:text-black transition-colors duration-300">Browse Now</span>
+                    <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                  </Link>
+                </div>
+              </div>
             </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-            <h1 className="text-5xl md:text-8xl font-serif text-white leading-[1.1] tracking-tight drop-shadow-2xl">
-              Discover Your <br />
-              <span className="italic font-light text-stone-200">
-                Perfect Aesthetic
-              </span>
-            </h1>
+      <style jsx global>{`
+        .swiper-button-next, .swiper-button-prev {
+          background: transparent !important;
+          color: white !important;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          width: auto !important;
+          height: auto !important;
+        }
 
-            <p className="text-white text-base md:text-xl font-light leading-normal max-w-xl opacity-90 drop-shadow-lg">
-              Elevate your space with premium tiles. Explore our curated gallery
-              of world-class textures designed for modern architectural spaces.
-            </p>
+        .swiper-button-next::after, .swiper-button-prev::after {
+          font-size: 30px !important;
+          text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
 
-            <div className="flex pt-6">
-              <Link
-                href="/all-tiles"
-                className="group relative px-14 py-5 bg-white text-stone-900 rounded-full font-bold uppercase tracking-[0.2em] text-[11px] overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_25px_50px_-12px_rgba(255,255,255,0.2)] active:scale-95"
-              >
-                <span className="relative text-md z-10 transition-colors duration-300 group-hover:text-black">
-                  Browse Now
-                </span>
-                <div className="absolute inset-0 bg-[#f8f5f0] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
-              </Link>
-            </div>
-          </div>
-        </div>
+        .group:hover .swiper-button-next, .group:hover .swiper-button-prev {
+          opacity: 0.8;
+        }
 
-        
-        <div className="absolute bottom-12 right-12 hidden lg:block group-hover:translate-y-2.5 transition-transform duration-700">
-          <div className="p-6 backdrop-blur-2xl bg-black/20 border border-white/10 rounded-[2rem] shadow-2xl">
-            <p className="text-[#c8b89a] text-[9px] uppercase tracking-[0.4em] font-bold mb-2">
-              Featured Texture
-            </p>
-            <div className="flex items-center gap-4">
-              <p className="text-white text-sm font-semibold tracking-wide">
-                Calacatta Gold Marble
-              </p>
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+        /
+        .swiper-slide {
+          border: none !important;
+          outline: none !important;
+        }
+
+       
+        .swiper-pagination-bullet {
+          background: white !important;
+          opacity: 0.3;
+        }
+        .swiper-pagination-bullet-active {
+          opacity: 1 !important;
+          width: 30px !important;
+          border-radius: 10px !important;
+        }
+      `}</style>
     </section>
   );
 };

@@ -47,6 +47,9 @@ export default function LogInPage() {
     await authClient.signIn.social({
       provider: "google",
       callbackURL: "/", 
+      onSuccess: () => {
+        toast.success("Google sign in successful!");
+      },
     });
   } catch (error) {
     toast.error("Google sign in failed!");
