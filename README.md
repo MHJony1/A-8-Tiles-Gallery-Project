@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+  # 🏺 Tilecraft Gallery
+  **The Future of Architectural Surface Aesthetics**
 
-First, run the development server:
+  [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://a-8-tiles-gallery-project.vercel.app/)
+  [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+  [![Tailwind](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  [Explore Live Demo](https://a-8-tiles-gallery-project.vercel.app/) • [Report Bug](https://github.com/MHJony1/A-8-Tiles-Gallery-Project/issues)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</div>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📖 Project Essence
+**Tilecraft Gallery** is a premium digital exhibition showcasing elite tile textures. Built with the cutting-edge **Next.js 16** and **Tailwind CSS 4**, this application demonstrates a high-end interface designed for modern architects and interior designers.
 
-## Learn More
+## 💎 Core Value Propositions
 
-To learn more about Next.js, take a look at the following resources:
+### 🏹 Cutting-Edge UI/UX
+*   **Modern Styling:** Powered by **Tailwind CSS 4** for high-performance utility-first design.
+*   **Fluid Animations:** Smooth transitions and luxury material-inspired color palettes.
+*   **Full Responsiveness:** Optimized for everything from mobile screens to ultra-wide displays.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ⚙️ Technical Architecture
+*   **Next.js 16 (App Router):** Utilizing the latest server-side rendering (SSR) and optimized data fetching.
+*   **Swiper.js:** Premium carousels for showcasing 'Architectural Masterpieces'.
+*   **Real-time Interaction:** Advanced search and filtering on the catalogue page.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Built With
 
-## Deploy on Vercel
+| Category | Technology |
+| :--- | :--- |
+| **Framework** | **Next.js 16** |
+| **Styling** | **Tailwind CSS 4** |
+| **Slider** | **Swiper.js** |
+| **Package Manager** | **pnpm** |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🖼️ Project Showcase & Overview
+
+### 🏠 01. Homepage Experience
+<div align="center">
+  <img src="readme-assets/homePage.png" alt="Homepage Overview" width="100%" style="border-radius: 10px; border: 1px solid #eaeaea;">
+  <p><em>The main landing page featuring Hero Sliders and Signature Collections.</em></p>
+</div>
+
+<br/>
+
+### 🔍 02. Global Catalogue (All Tiles)
+<div align="center">
+  <img src="readme-assets/allCatalogePage.png" alt="All Tiles Page" width="100%" style="border-radius: 10px; border: 1px solid #eaeaea;">
+  <p><em>Complete catalogue with real-time search functionality.</em></p>
+</div>
+
+<br/>
+
+### 👤 03. User Account & Security
+<div align="center">
+  <table style="width:100%">
+    <tr>
+      <td width="33%"><img src="readme-assets/loginPage.png" alt="Login" style="border-radius: 8px;"></td>
+      <td width="33%"><img src="readme-assets/registerPage.png" alt="Register" style="border-radius: 8px;"></td>
+      <td width="33%"><img src="readme-assets/profilePage.png" alt="Profile" style="border-radius: 8px;"></td>
+    </tr>
+  </table>
+  <p><em>Integrated Login, Registration, and Personalized User Profile management.</em></p>
+</div>
+
+---
+
+## 👤 About the Developer
+**Mahmudul Hasan (Jony)**  
+*Full Stack MERN Developer*
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MHJony1)
+
+---
+<div align="center">
+  <p>Crafted with ❤️ by Mahmudul Hasan Jony</p>
+</div
