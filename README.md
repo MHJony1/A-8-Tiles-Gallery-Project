@@ -34,7 +34,9 @@
 | :--- | :--- |
 | **Framework** | **Next.js 16** |
 | **Styling** | **Tailwind CSS 4** |
-| **Slider** | **Swiper.js** |
+| **UI Library** | **Hero UI** |
+| **Authentication** | **Better Auth** |
+| **Slider(npm package)** | **Swiper.js** |
 | **Package Manager** | **pnpm** |
 
 ---
